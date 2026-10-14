@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微光甜點室 Maison de Lueur | 減糖純手作甜點品牌形象網</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Noto Serif TC & Inter & Zen Maru Gothic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#FAF7F2',
+                            100: '#F4ECE1',
+                            200: '#EADFCF',
+                            300: '#D9C8B4',
+                        },
+                        caramel: {
+                            light: '#F4E8E1',
+                            DEFAULT: '#C87D55',
+                            hover: '#B36A43',
+                            dark: '#8C4D2B'
+                        },
+                        sage: {
+                            light: '#EBF0E9',
+                            DEFAULT: '#A3B19B',
+                            dark: '#586851',
+                        },
+                        chocolate: {
+                            light: '#786558',
+                            DEFAULT: '#3D322A',
+                            dark: '#251D18',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        sans: ['"Zen Maru Gothic"', '"Inter"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 30px -10px rgba(61, 50, 42, 0.08)',
+                        'hover': '0 20px 40px -15px rgba(200, 125, 85, 0.18)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Zen Maru Gothic', 'Inter', sans-serif;
+            background-color: #FAF7F2;
+            color: #3D322A;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* 品牌核心文字互動與光影細節 */
+        .hero-title-highlight {
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hero-title-highlight:hover {
+            color: #C87D55;
+            transform: translateY(-2px);
+            text-shadow: 0 4px 18px rgba(200, 125, 85, 0.22);
+        }
+        .hero-word-chip {
+            opacity: 0;
+            transform: translateY(6px) scale(0.95);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+        .hero-title-highlight:hover .hero-word-chip {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .glow-follower {
+            pointer-events: none;
+            transition: transform 0.15s ease-out, opacity 0.4s ease;
+        }
+    </style>
+</head>
+<body class="bg-cream-50 text-chocolate min-h-screen flex flex-col selection:bg-caramel selection:text-white">
+
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-cream-50/95 backdrop-blur-md border-b border-cream-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo with Q-Version Mascot -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-cream-100 p-1 border border-caramel/30 group-hover:scale-105 transition-transform shrink-0 shadow-sm flex items-center justify-center">
+                        <!-- Q-Version Girl Mascot SVG (Wearing beret & hugging bread) -->
+                        <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-sm">
+                            <!-- Background soft circle -->
+                            <circle cx="50" cy="50" r="46" fill="#F4ECE1"/>
+                            
+                            <!-- Long hair (Back) -->
+                            <path d="M 28 42 C 22 58 25 82 32 86 C 38 86 42 72 42 58 L 58 58 C 58 72 62 86 68 86 C 75 82 78 58 72 42 Z" fill="#4A3B32"/>
+                            
+                            <!-- Face -->
+                            <ellipse cx="50" cy="48" rx="19" ry="17" fill="#FFF2E8"/>
+                            
+                            <!-- Eyes (Cute smiling arcs) -->
+                            <path d="M 40 46 Q 44 42 48 46" stroke="#3D322A" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+                            <path d="M 52 46 Q 56 42 60 46" stroke="#3D322A" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+                            
+                            <!-- Rosy Cheeks -->
+                            <ellipse cx="37" cy="51" rx="4" ry="2.2" fill="#F7A89A" opacity="0.65"/>
+                            <ellipse cx="63" cy="51" rx="4" ry="2.2" fill="#F7A89A" opacity="0.65"/>
+                            
+                            <!-- Smile -->
+                            <path d="M 47 53 Q 50 56 53 53" stroke="#3D322A" stroke-width="2" stroke-linecap="round" fill="none"/>
+                            
+                            <!-- Bangs / Hair Front -->
+                            <path d="M 31 43 Q 41 49 50 43 Q 59 49 69 43 C 69 34 60 31 50 31 C 40 31 31 34 31 43 Z" fill="#4A3B32"/>
+                            
+                            <!-- Beret Hat -->
+                            <path d="M 25 35 C 25 21 38 16 50 16 C 62 16 75 21 75 35 C 65 38 35 38 25 35 Z" fill="#C87D55"/>
+                            <!-- Beret Stem -->
+                            <path d="M 49 16 L 49 12 Q 51 12 51 16 Z" fill="#8C4D2B"/>
+                            <!-- Beret Brim -->
+                            <path d="M 29 35 C 40 37 60 37 71 35 C 72 37 68 40 50 40 C 32 40 28 37 29 35 Z" fill="#B36A43"/>
+                            <!-- Tiny Leaf decoration on beret -->
+                            <path d="M 54 15 C 57 12 60 13 60 15 C 58 17 55 17 54 15 Z" fill="#A3B19B"/>
+
+                            <!-- Loaf of Bread (Baguette/Loaf being hugged) -->
+                            <path d="M 34 66 C 32 58 38 54 50 54 C 62 54 68 58 66 66 C 64 72 36 72 34 66 Z" fill="#E2A053"/>
+                            <!-- Bread Score Lines -->
+                            <path d="M 41 58 Q 44 62 42 66 M 49 57 Q 52 61 50 65 M 57 58 Q 60 62 58 66" stroke="#A86829" stroke-width="2" stroke-linecap="round"/>
+                            
+                            <!-- Chibi Arms Hugging the Bread -->
+                            <circle cx="35" cy="63" r="4.5" fill="#FFF2E8"/>
+                            <circle cx="65" cy="63" r="4.5" fill="#FFF2E8"/>
+                        </svg>
+                    </div>
+
+                    <div class="flex flex-col items-start">
+                        <span class="font-serif text-xl sm:text-2xl tracking-widest text-chocolate group-hover:text-caramel transition-colors font-semibold">
+                            微光甜點室
+                        </span>
+                        <span class="text-[10px] sm:text-xs tracking-widest text-caramel uppercase font-medium">
+                            Maison de Lueur
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-7 text-sm tracking-widest">
+                    <a href="#hero" class="text-chocolate/80 hover:text-caramel transition-colors py-2 font-medium">品牌首頁</a>
+                    <a href="#story" class="text-chocolate/80 hover:text-caramel transition-colors py-2 font-medium">品牌故事</a>
+                    <a href="#philosophy" class="text-chocolate/80 hover:text-caramel transition-colors py-2 font-medium">理念與價值</a>
+                    <a href="#products" class="text-chocolate/80 hover:text-caramel transition-colors py-2 font-medium">商品展示</a>
+                    <a href="#features" class="text-chocolate/80 hover:text-caramel transition-colors py-2 font-medium">視覺體驗</a>
+                    <a href="#contact" class="bg-caramel text-white px-5 py-2.5 rounded-full hover:bg-caramel-hover transition-all shadow-sm hover:shadow-hover">
+                        聯絡預約
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-chocolate p-2 rounded-lg hover:bg-cream-100 transition-colors" aria-label="選單">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream-50 border-b border-cream-200 px-6 pt-4 pb-8 space-y-3 shadow-xl">
+            <a href="#hero" class="mobile-link block text-chocolate/90 hover:text-caramel py-2 border-b border-cream-200/50">品牌首頁</a>
+            <a href="#story" class="mobile-link block text-chocolate/90 hover:text-caramel py-2 border-b border-cream-200/50">品牌故事</a>
+            <a href="#philosophy" class="mobile-link block text-chocolate/90 hover:text-caramel py-2 border-b border-cream-200/50">理念與價值</a>
+            <a href="#products" class="mobile-link block text-chocolate/90 hover:text-caramel py-2 border-b border-cream-200/50">商品展示</a>
+            <a href="#features" class="mobile-link block text-chocolate/90 hover:text-caramel py-2 border-b border-cream-200/50">視覺體驗</a>
+            <a href="#contact" class="mobile-link block text-center bg-caramel text-white px-5 py-3 rounded-full hover:bg-caramel-hover transition-colors font-medium mt-4">
+                聯絡預約
+            </a>
+        </div>
+    </nav>
+
+    <section id="hero" class="relative min-h-screen pt-24 flex items-center justify-center overflow-hidden bg-gradient-to-b from-cream-100/60 via-cream-50 to-cream-50">
+        <!-- 微光動態跟隨光暈 -->
+        <div id="hero-glow" class="glow-follower absolute w-80 h-80 rounded-full bg-gradient-to-r from-caramel/20 via-cream-200/40 to-sage/20 blur-3xl opacity-0 pointer-events-none -translate-x-1/2 -translate-y-1/2 z-0"></div>
+
+        <!-- Ambient blurred background elements -->
+        <div class="absolute -top-20 -left-20 w-96 h-96 bg-caramel/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -right-20 w-96 h-96 bg-sage/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Header Intro -->
+            <div class="lg:col-span-6 text-center lg:text-left space-y-6 sm:space-y-8">
+                <div class="inline-flex items-center gap-2 bg-white/90 border border-caramel/20 px-4 py-1.5 rounded-full text-xs sm:text-sm text-caramel tracking-wider shadow-sm hover:border-caramel/50 transition-all cursor-default group">
+                    <span class="w-2 h-2 rounded-full bg-caramel animate-pulse"></span>
+                    <span>減糖純手作 ‧ 日系輕負擔甜點室</span>
+                    <i class="fa-solid fa-sparkles text-xs text-caramel/70 group-hover:rotate-12 transition-transform"></i>
+                </div>
+                
+                <!-- 品牌標語與核心價值簡潔卡片區塊 -->
+                <div class="space-y-6">
+                    <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-chocolate tracking-wide">
+                        微光烘焙，許你一口<br/>
+                        <span class="text-caramel font-bold border-b-2 border-caramel/30 pb-1">安心與溫柔</span>
+                    </h1>
+
+                    <!-- 品牌價值簡潔卡片網格 -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+                        <!-- 價值卡片 1 -->
+                        <div class="group relative bg-white/80 hover:bg-white backdrop-blur-sm p-4 rounded-2xl border border-cream-200/80 hover:border-caramel/50 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-caramel-light text-caramel group-hover:bg-caramel group-hover:text-white flex items-center justify-center transition-colors shrink-0 shadow-xs">
+                                    <i class="fa-solid fa-feather-pointed text-base"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <h3 class="font-serif font-bold text-base text-chocolate group-hover:text-caramel transition-colors flex items-center justify-between">
+                                        <span>少一點負擔</span>
+                                        <i class="fa-solid fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-caramel"></i>
+                                    </h3>
+                                    <p class="text-[11px] text-chocolate/50 font-normal">核心減糖配方</p>
+                                </div>
+                            </div>
+                            <!-- 懸停展開說明 -->
+                            <div class="max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-3 transition-all duration-300 ease-in-out border-t border-cream-100/80 pt-0 group-hover:pt-2.5">
+                                <p class="text-xs text-chocolate/80 leading-relaxed bg-cream-50/80 p-2.5 rounded-xl border border-cream-200/40">
+                                    ✨ 精算比例調降 <span class="text-caramel font-semibold">30%~50% 精製糖</span>，享受甜美無後顧之憂。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 價值卡片 2 -->
+                        <div class="group relative bg-white/80 hover:bg-white backdrop-blur-sm p-4 rounded-2xl border border-cream-200/80 hover:border-sage/60 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-sage-light text-sage-dark group-hover:bg-sage group-hover:text-white flex items-center justify-center transition-colors shrink-0 shadow-xs">
+                                    <i class="fa-solid fa-seedling text-base"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <h3 class="font-serif font-bold text-base text-chocolate group-hover:text-sage-dark transition-colors flex items-center justify-between">
+                                        <span>多一點甘甜</span>
+                                        <i class="fa-solid fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-sage-dark"></i>
+                                    </h3>
+                                    <p class="text-[11px] text-chocolate/50 font-normal">嚴選天然旬味</p>
+                                </div>
+                            </div>
+                            <!-- 懸停展開說明 -->
+                            <div class="max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-3 transition-all duration-300 ease-in-out border-t border-cream-100/80 pt-0 group-hover:pt-2.5">
+                                <p class="text-xs text-chocolate/80 leading-relaxed bg-sage-light/40 p-2.5 rounded-xl border border-sage/20">
+                                    🌱 嚴選<span class="text-sage-dark font-semibold">日本海藻糖與自然果甘</span>，清爽回甘不死甜。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 價值卡片 3 -->
+                        <div class="group relative bg-white/80 hover:bg-white backdrop-blur-sm p-4 rounded-2xl border border-cream-200/80 hover:border-caramel/50 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-caramel-light text-caramel group-hover:bg-caramel group-hover:text-white flex items-center justify-center transition-colors shrink-0 shadow-xs">
+                                    <i class="fa-solid fa-hands-holding-heart text-base"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <h3 class="font-serif font-bold text-base text-chocolate group-hover:text-caramel transition-colors flex items-center justify-between">
+                                        <span>減糖純手工</span>
+                                        <i class="fa-solid fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-caramel"></i>
+                                    </h3>
+                                    <p class="text-[11px] text-chocolate/50 font-normal">職人小量鮮烘</p>
+                                </div>
+                            </div>
+                            <!-- 懸停展開說明 -->
+                            <div class="max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-3 transition-all duration-300 ease-in-out border-t border-cream-100/80 pt-0 group-hover:pt-2.5">
+                                <p class="text-xs text-chocolate/80 leading-relaxed bg-cream-50/80 p-2.5 rounded-xl border border-cream-200/40">
+                                    🥐 <span class="text-caramel font-semibold">100% 每日小量新鮮烘焙</span>，揉入手作的溫暖質感。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 價值卡片 4 -->
+                        <div class="group relative bg-white/80 hover:bg-white backdrop-blur-sm p-4 rounded-2xl border border-cream-200/80 hover:border-sage/60 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer overflow-hidden">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-sage-light text-sage-dark group-hover:bg-sage group-hover:text-white flex items-center justify-center transition-colors shrink-0 shadow-xs">
+                                    <i class="fa-solid fa-shield-heart text-base"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <h3 class="font-serif font-bold text-base text-chocolate group-hover:text-sage-dark transition-colors flex items-center justify-between">
+                                        <span>安心與溫柔</span>
+                                        <i class="fa-solid fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-sage-dark"></i>
+                                    </h3>
+                                    <p class="text-[11px] text-chocolate/50 font-normal">無添加健康許諾</p>
+                                </div>
+                            </div>
+                            <!-- 懸停展開說明 -->
+                            <div class="max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-3 transition-all duration-300 ease-in-out border-t border-cream-100/80 pt-0 group-hover:pt-2.5">
+                                <p class="text-xs text-chocolate/80 leading-relaxed bg-sage-light/40 p-2.5 rounded-xl border border-sage/20">
+                                    🛡️ 堅持 <span class="text-sage-dark font-semibold">0% 防腐劑與化學添加物</span>，全家人安心共享。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-chocolate/80 text-sm sm:text-base leading-relaxed tracking-wide font-normal max-w-xl mx-auto lg:mx-0 bg-white/40 backdrop-blur-xs p-4 sm:p-5 rounded-2xl border border-cream-200/50 hover:bg-white/70 transition-all">
+                    在忙碌的生活步調裡，為自己留一盞茶的時間。微光甜點室精算糖分與嚴選旬味食材，調配出減糖 30%～50% 的輕盈配方，讓享受甜蜜不再有負擔。
+                </p>
+
+                <!-- Action Buttons & Key Badges -->
+                <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#products" class="w-full sm:w-auto px-8 py-4 bg-caramel text-white rounded-full hover:bg-caramel-hover transition-all duration-300 text-sm tracking-widest shadow-lg shadow-caramel/20 hover:shadow-hover text-center font-medium">
+                        瀏覽美味品項 <i class="fa-solid fa-cookie-bite ml-2 text-xs"></i>
+                    </a>
+                    <a href="#story" class="w-full sm:w-auto px-8 py-4 bg-white/80 border border-cream-300 text-chocolate rounded-full hover:bg-cream-100 transition-colors text-sm tracking-widest text-center font-medium">
+                        探索品牌故事
+                    </a>
+                </div>
+
+                <!-- Stats Highlight -->
+                <div class="pt-6 grid grid-cols-3 gap-4 border-t border-cream-200/80 max-w-md mx-auto lg:mx-0 text-center">
+                    <div>
+                        <p class="font-serif font-bold text-xl sm:text-2xl text-caramel">-30~50%</p>
+                        <p class="text-[11px] sm:text-xs text-chocolate/60">精製糖調降</p>
+                    </div>
+                    <div>
+                        <p class="font-serif font-bold text-xl sm:text-2xl text-chocolate">100%</p>
+                        <p class="text-[11px] sm:text-xs text-chocolate/60">純手工小量烘焙</p>
+                    </div>
+                    <div>
+                        <p class="font-serif font-bold text-xl sm:text-2xl text-sage-dark">0%</p>
+                        <p class="text-[11px] sm:text-xs text-chocolate/60">人工防腐化學物</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Image -->
+            <div class="lg:col-span-6 relative flex justify-center">
+                <div class="relative w-full max-w-md lg:max-w-none">
+                    <!-- Large Q-version Mascot LOGO Showcase Card -->
+                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white bg-gradient-to-br from-cream-100 via-white to-caramel-light/40 p-8 sm:p-12 flex flex-col items-center justify-center text-center group">
+                        <!-- Ambient backdrop glow -->
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-caramel/10 via-transparent to-transparent opacity-60"></div>
+                        
+                        <!-- Large Q-Version Mascot SVG -->
+                        <div class="w-64 h-64 sm:w-80 sm:h-80 relative z-10 drop-shadow-xl transition-transform duration-500 group-hover:scale-105">
+                            <svg viewBox="0 0 100 100" class="w-full h-full">
+                                <!-- Background soft circle with subtle dash ring -->
+                                <circle cx="50" cy="50" r="48" fill="#F4ECE1"/>
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="#C87D55" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.6"/>
+                                
+                                <!-- Long hair (Back) -->
+                                <path d="M 28 42 C 22 58 25 82 32 86 C 38 86 42 72 42 58 L 58 58 C 58 72 62 86 68 86 C 75 82 78 58 72 42 Z" fill="#4A3B32"/>
+                                
+                                <!-- Face -->
+                                <ellipse cx="50" cy="48" rx="19" ry="17" fill="#FFF2E8"/>
+                                
+                                <!-- Eyes (Cute smiling arcs) -->
+                                <path d="M 40 46 Q 44 42 48 46" stroke="#3D322A" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+                                <path d="M 52 46 Q 56 42 60 46" stroke="#3D322A" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+                                
+                                <!-- Rosy Cheeks -->
+                                <ellipse cx="37" cy="51" rx="4" ry="2.2" fill="#F7A89A" opacity="0.65"/>
+                                <ellipse cx="63" cy="51" rx="4" ry="2.2" fill="#F7A89A" opacity="0.65"/>
+                                
+                                <!-- Smile -->
+                                <path d="M 47 53 Q 50 56 53 53" stroke="#3D322A" stroke-width="2" stroke-linecap="round" fill="none"/>
+                                
+                                <!-- Bangs / Hair Front -->
+                                <path d="M 31 43 Q 41 49 50 43 Q 59 49 69 43 C 69 34 60 31 50 31 C 40 31 31 34 31 43 Z" fill="#4A3B32"/>
+                                
+                                <!-- Beret Hat -->
+                                <path d="M 25 35 C 25 21 38 16 50 16 C 62 16 75 21 75 35 C 65 38 35 38 25 35 Z" fill="#C87D55"/>
+                                <!-- Beret Stem -->
+                                <path d="M 49 16 L 49 12 Q 51 12 51 16 Z" fill="#8C4D2B"/>
+                                <!-- Beret Brim -->
+                                <path d="M 29 35 C 40 37 60 37 71 35 C 72 37 68 40 50 40 C 32 40 28 37 29 35 Z" fill="#B36A43"/>
+                                <!-- Tiny Leaf decoration on beret -->
+                                <path d="M 54 15 C 57 12 60 13 60 15 C 58 17 55 17 54 15 Z" fill="#A3B19B"/>
+
+                                <!-- Loaf of Bread (Baguette/Loaf being hugged) -->
+                                <path d="M 34 66 C 32 58 38 54 50 54 C 62 54 68 58 66 66 C 64 72 36 72 34 66 Z" fill="#E2A053"/>
+                                <!-- Bread Score Lines -->
+                                <path d="M 41 58 Q 44 62 42 66 M 49 57 Q 52 61 50 65 M 57 58 Q 60 62 58 66" stroke="#A86829" stroke-width="2" stroke-linecap="round"/>
+                                
+                                <!-- Chibi Arms Hugging the Bread -->
+                                <circle cx="35" cy="63" r="4.5" fill="#FFF2E8"/>
+                                <circle cx="65" cy="63" r="4.5" fill="#FFF2E8"/>
+                            </svg>
+                        </div>
+
+                        <div class="relative z-10 mt-4 space-y-1">
+                            <h3 class="font-serif text-2xl font-bold text-chocolate tracking-widest">微光甜點室</h3>
+                            <p class="text-xs text-caramel tracking-widest uppercase font-semibold">Maison de Lueur Mascot</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating Feature Badges -->
+                    <div class="absolute -top-6 -right-4 z-20 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-cream-200 flex items-center gap-3 animate-float">
+                        <div class="w-10 h-10 rounded-full bg-caramel-light flex items-center justify-center text-caramel">
+                            <i class="fa-solid fa-cookie-bite text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="font-serif text-xs font-semibold text-chocolate">手作靈魂標誌</p>
+                            <p class="text-[11px] text-caramel font-medium">減糖純手作 ‧ 安心許諾</p>
+                        </div>
+                    </div>
+
+                    <div class="absolute -bottom-6 -left-6 z-20 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl shadow-xl border border-cream-200 hidden sm:flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-caramel-light flex items-center justify-center text-caramel">
+                            <i class="fa-solid fa-heart text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-chocolate/60">安心許諾</p>
+                            <p class="font-serif font-semibold text-chocolate text-sm">減糖不減風味，溫柔滋味</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <!-- Story Visual Collage -->
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4 relative">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" 
+                         alt="烘焙與減糖試驗" 
+                         class="rounded-2xl shadow-md object-cover h-64 sm:h-80 w-full hover:opacity-95 transition-opacity"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF7F2/3D322A?text=Baking';"
+                    />
+                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=600&q=80" 
+                         alt="天然優質食材" 
+                         class="rounded-2xl shadow-md object-cover h-64 sm:h-80 w-full mt-8 hover:opacity-95 transition-opacity"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF7F2/3D322A?text=Ingredients';"
+                    />
+                </div>
+
+                <!-- Story Narrative -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-block px-3 py-1 bg-caramel-light text-caramel text-xs rounded-full font-medium tracking-wider uppercase">
+                        Brand Story ‧ 品牌故事
+                    </div>
+                    <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-chocolate tracking-wide leading-relaxed">
+                        一碗減糖配方，<br/>藏著對家人最深沉的愛與溫柔
+                    </h2>
+                    <div class="w-12 h-0.5 bg-caramel/40"></div>
+                    
+                    <div class="space-y-4 text-chocolate/80 text-sm sm:text-base leading-relaxed font-normal">
+                        <p>
+                            「微光甜點室 Maison de Lueur」源於主理人對家人的溫暖關懷。為了讓注重健康、不敢攝取過多糖分的家人，也能無後顧之憂地享受甜點帶來的幸福感，主理人開始了一場「減糖不減美味」的烘焙革命。
+                        </p>
+                        <p>
+                            我們經歷上百次成分微調與烘焙試驗，嚴選赤藻糖醇與日本海藻糖代替傳統精製砂糖，將整體糖分降低 30% 至 50%。雖然製作過程更加耗時繁複，但當看到家人安心品嚐時的滿足笑容，這一切都化為最美好的回報。
+                        </p>
+                        <p>
+                            微光，代表著黑夜裡溫暖而不灼人的光芒。我們希望這份減糖手作甜點，能成為您繁忙生活中最安心、無負擔的溫柔陪伴。
+                        </p>
+                    </div>
+
+                    <div class="pt-4 flex items-center gap-6 border-t border-cream-200">
+                        <div>
+                            <p class="font-serif text-base font-semibold text-chocolate">品牌主理人 ‧ 烘焙師</p>
+                            <p class="text-xs text-chocolate/60">Founder & Chief Pastry Chef</p>
+                        </div>
+                        <div class="h-8 w-px bg-cream-200"></div>
+                        <p class="font-serif italic text-caramel text-xs sm:text-sm">
+                            「減糖，不是妥協，而是對美味更講究的溫柔態度。」
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophy" class="py-24 bg-cream-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-caramel text-xs font-medium tracking-widest uppercase">Philosophy & Core Values</span>
+                <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-chocolate tracking-wide">品牌理念與四大核心價值</h2>
+                <div class="w-12 h-0.5 bg-caramel/40 mx-auto mt-4"></div>
+                <p class="text-chocolate/70 text-sm font-normal pt-2">
+                    我們相信真正的甜點美學，來自於對食材的尊重與對身體的友善照顧。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Value Card 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-cream-200 hover:border-caramel/40 hover:shadow-hover transition-all duration-300 space-y-4 text-center group">
+                    <div class="w-14 h-14 rounded-full bg-caramel-light text-caramel mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-feather text-2xl"></i>
+                    </div>
+                    <h3 class="font-serif text-lg font-semibold text-chocolate">減糖低負擔</h3>
+                    <p class="text-xs sm:text-sm text-chocolate/70 leading-relaxed">
+                        精算糖分比例，降低精製糖 30~50%，保留食材自然清甜，享受美味毫無罪惡感。
+                    </p>
+                </div>
+
+                <!-- Value Card 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-cream-200 hover:border-caramel/40 hover:shadow-hover transition-all duration-300 space-y-4 text-center group">
+                    <div class="w-14 h-14 rounded-full bg-sage-light text-sage-dark mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-hands-holding-child text-2xl"></i>
+                    </div>
+                    <h3 class="font-serif text-lg font-semibold text-chocolate">100% 職人手作</h3>
+                    <p class="text-xs sm:text-sm text-chocolate/70 leading-relaxed">
+                        堅持小量接單新鮮製作，無工廠流水線，每一塊糕點都飽含溫度的手作質感。
+                    </p>
+                </div>
+
+                <!-- Value Card 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-cream-200 hover:border-caramel/40 hover:shadow-hover transition-all duration-300 space-y-4 text-center group">
+                    <div class="w-14 h-14 rounded-full bg-caramel-light text-caramel mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-wheat-awn text-2xl"></i>
+                    </div>
+                    <h3 class="font-serif text-lg font-semibold text-chocolate">嚴選自然旬味</h3>
+                    <p class="text-xs sm:text-sm text-chocolate/70 leading-relaxed">
+                        選用日本小麥粉、法國 AOP 發酵奶油與在地有機旬味果物，絕不添加人工香精防腐劑。
+                    </p>
+                </div>
+
+                <!-- Value Card 4 -->
+                <div class="bg-white p-8 rounded-2xl border border-cream-200 hover:border-caramel/40 hover:shadow-hover transition-all duration-300 space-y-4 text-center group">
+                    <div class="w-14 h-14 rounded-full bg-sage-light text-sage-dark mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-leaf text-2xl"></i>
+                    </div>
+                    <h3 class="font-serif text-lg font-semibold text-chocolate">永續溫柔包裝</h3>
+                    <p class="text-xs sm:text-sm text-chocolate/70 leading-relaxed">
+                        全面採用再生環保紙材與植物大豆油墨印刷，減塑包裝，用心關懷這片土地。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                <span class="text-caramel text-xs font-medium tracking-widest uppercase">Dessert Showcase</span>
+                <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-chocolate tracking-wide">精選手作甜點</h2>
+                <p class="text-chocolate/60 text-sm">點擊產品卡片可查看風味品嚐筆記與嚴選成分表</p>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="flex justify-center mb-12 overflow-x-auto no-scrollbar pb-2">
+                <div class="inline-flex p-1.5 bg-cream-100 rounded-full text-xs sm:text-sm font-medium">
+                    <button class="filter-btn active px-6 py-2.5 rounded-full text-chocolate transition-all duration-300 bg-white shadow-sm" data-category="all">
+                        全部品項 All
+                    </button>
+                    <button class="filter-btn px-6 py-2.5 rounded-full text-chocolate/70 hover:text-chocolate transition-all duration-300" data-category="cake">
+                        手作蛋糕 Cakes
+                    </button>
+                    <button class="filter-btn px-6 py-2.5 rounded-full text-chocolate/70 hover:text-chocolate transition-all duration-300" data-category="cookie">
+                        減糖餅乾 Cookies
+                    </button>
+                    <button class="filter-btn px-6 py-2.5 rounded-full text-chocolate/70 hover:text-chocolate transition-all duration-300" data-category="pastry">
+                        法式糕點 Pastries
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Cards Grid -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Injected dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal Popup -->
+    <div id="product-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-chocolate/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 relative border border-cream-200 max-h-[90vh] flex flex-col md:flex-row">
+            <button id="modal-close" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-cream-100 text-chocolate/70 hover:text-chocolate hover:bg-cream-200 transition-colors flex items-center justify-center" aria-label="關閉">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="md:w-1/2 h-64 md:h-auto relative bg-cream-100">
+                <img id="modal-img" src="" alt="" class="w-full h-full object-cover"/>
+            </div>
+
+            <div class="md:w-1/2 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto">
+                <div class="space-y-4">
+                    <span id="modal-category" class="text-xs tracking-widest text-caramel uppercase font-medium">Category</span>
+                    <h3 id="modal-title" class="font-serif text-2xl font-semibold text-chocolate">Product Name</h3>
+                    <p id="modal-price" class="text-lg text-caramel font-semibold">NT$ 000</p>
+                    
+                    <div class="border-t border-cream-200 pt-4 space-y-3">
+                        <div>
+                            <h4 class="text-xs font-semibold text-chocolate/80 uppercase tracking-wider mb-1">風味品嚐筆記 Tasting Notes</h4>
+                            <p id="modal-desc" class="text-xs sm:text-sm text-chocolate/70 leading-relaxed font-normal"></p>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-semibold text-chocolate/80 uppercase tracking-wider mb-1">嚴選食材 Ingredients</h4>
+                            <p id="modal-ingredients" class="text-xs sm:text-sm text-chocolate/70 font-normal"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-cream-200 mt-6">
+                    <button id="modal-select-btn" class="w-full bg-caramel text-white py-3.5 rounded-full hover:bg-caramel-hover transition-colors text-sm font-medium tracking-wide shadow-md">
+                        加入預約試算單
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="features" class="py-24 bg-cream-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-caramel text-xs font-medium tracking-widest uppercase">Visual Experience</span>
+                <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-chocolate tracking-wide">品牌特色與視覺體驗</h2>
+                <div class="w-12 h-0.5 bg-caramel/40 mx-auto mt-4"></div>
+                <p class="text-chocolate/70 text-sm">透明化的減糖配方實驗與日系手作美學展示</p>
+            </div>
+
+            <!-- Comparison Feature Box -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white p-8 sm:p-12 rounded-3xl border border-cream-200 shadow-soft mb-16">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="inline-block px-3 py-1 bg-sage-light text-sage-dark text-xs rounded-full font-medium">減糖透明化比較表</span>
+                    <h3 class="font-serif text-2xl font-semibold text-chocolate">傳統甜點 vs 微光減糖手作</h3>
+                    <p class="text-chocolate/70 text-sm leading-relaxed">
+                        我們透過赤藻糖醇與天然果糖取代高升糖精製白糖，降低熱量與負擔，同時保留最綿密香濃的口感。
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div>
+                            <div class="flex justify-between text-xs text-chocolate font-medium mb-1">
+                                <span>微光甜點室減糖蛋糕 (熱量與精製糖)</span>
+                                <span class="text-caramel font-bold">減少 40% 負擔</span>
+                            </div>
+                            <div class="w-full h-3 bg-cream-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-caramel rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs text-chocolate/60 font-medium mb-1">
+                                <span>市售傳統市售甜點 (一般糖分)</span>
+                                <span>100% 糖分載量</span>
+                            </div>
+                            <div class="w-full h-3 bg-cream-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-chocolate/40 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200 text-center space-y-2">
+                        <i class="fa-solid fa-scale-balanced text-3xl text-caramel"></i>
+                        <h4 class="font-serif font-semibold text-chocolate text-base">黃金減糖比例</h4>
+                        <p class="text-xs text-chocolate/60">精準控制 30~50% 甜度，不過甜不鎖喉。</p>
+                    </div>
+                    <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200 text-center space-y-2">
+                        <i class="fa-solid fa-seedling text-3xl text-sage-dark"></i>
+                        <h4 class="font-serif font-semibold text-chocolate text-base">天然植物糖醇</h4>
+                        <p class="text-xs text-chocolate/60">嚴選天然酵母發酵赤藻糖醇，極低熱量。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="relative group rounded-2xl overflow-hidden shadow-sm h-48 sm:h-64">
+                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=600&q=80" alt="烘焙特色" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
+                    <div class="absolute inset-0 bg-chocolate/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-serif">嚴選天然果物</div>
+                </div>
+                <div class="relative group rounded-2xl overflow-hidden shadow-sm h-48 sm:h-64">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80" alt="餅乾手作" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
+                    <div class="absolute inset-0 bg-chocolate/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-serif">純手作香脆餅乾</div>
+                </div>
+                <div class="relative group rounded-2xl overflow-hidden shadow-sm h-48 sm:h-64">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="經典瑪德蓮" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
+                    <div class="absolute inset-0 bg-chocolate/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-serif">法式職人揉捻</div>
+                </div>
+                <div class="relative group rounded-2xl overflow-hidden shadow-sm h-48 sm:h-64">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80" alt="溫柔包裝" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
+                    <div class="absolute inset-0 bg-chocolate/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-serif">溫柔質感禮盒</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left Info & Location -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-caramel text-xs font-medium tracking-widest uppercase">Contact Us</span>
+                    <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-chocolate tracking-wide">預約諮詢與工作室資訊</h2>
+                    <p class="text-chocolate/70 text-sm leading-relaxed">
+                        微光甜點室全品項採全預約接單手工新鮮製作。如有客製彌月禮盒、喜餅或企業贈禮需求，歡迎填表或電話聯繫。
+                    </p>
+
+                    <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200 space-y-4 text-sm">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-location-dot text-caramel mt-1 text-base"></i>
+                            <div>
+                                <h4 class="font-semibold text-chocolate">工作室地址 Location</h4>
+                                <p class="text-chocolate/70 font-normal">台中市霧峰區光復新村微光路 88 號</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-clock text-caramel mt-1 text-base"></i>
+                            <div>
+                                <h4 class="font-semibold text-chocolate">取貨與營業時間 Hours</h4>
+                                <p class="text-chocolate/70 font-normal">週三至週日 11:00 - 18:30（週一、二固定公休）</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-phone text-caramel mt-1 text-base"></i>
+                            <div>
+                                <h4 class="font-semibold text-chocolate">訂購與諮詢專線 Phone</h4>
+                                <p class="text-chocolate/70 font-normal">(04) 2330-8888</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Reservation Form -->
+                <div class="lg:col-span-7 bg-cream-50 p-8 sm:p-10 rounded-3xl border border-cream-200 shadow-soft">
+                    <form id="order-form" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-chocolate/80 uppercase tracking-wider mb-2" for="name">訂購人姓名 Name *</label>
+                                <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-white border border-cream-200 focus:outline-none focus:border-caramel text-chocolate text-sm" placeholder="例如：林小姐">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-chocolate/80 uppercase tracking-wider mb-2" for="phone">聯絡電話 Phone *</label>
+                                <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-xl bg-white border border-cream-200 focus:outline-none focus:border-caramel text-chocolate text-sm" placeholder="0912-345-678">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-chocolate/80 uppercase tracking-wider mb-2" for="pickup-date">預計取貨/希望送達日 Date *</label>
+                                <input type="date" id="pickup-date" required class="w-full px-4 py-3 rounded-xl bg-white border border-cream-200 focus:outline-none focus:border-caramel text-chocolate text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-chocolate/80 uppercase tracking-wider mb-2" for="sweet-select">加入欲預約甜點 Select</label>
+                                <select id="sweet-select" class="w-full px-4 py-3 rounded-xl bg-white border border-cream-200 focus:outline-none focus:border-caramel text-chocolate text-sm">
+                                    <option value="">-- 請選擇品項 --</option>
+                                    <!-- Injected dynamically -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-chocolate/80 uppercase tracking-wider mb-2">已選預約清單 Selected Items</label>
+                            <div id="selected-list" class="min-h-[50px] p-3.5 bg-white rounded-xl border border-cream-200 flex flex-wrap gap-2 items-center text-xs text-chocolate/70">
+                                <span class="text-chocolate/40 italic">點選上方下拉選單即可新增至清單</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-chocolate/80 uppercase tracking-wider mb-2" for="message">溫馨叮嚀或備註 Message</label>
+                            <textarea id="message" rows="3" class="w-full px-4 py-3 rounded-xl bg-white border border-cream-200 focus:outline-none focus:border-caramel text-chocolate text-sm" placeholder="如過敏原需求、祝賀卡片或客製化包裝請於此留言..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-caramel text-white py-4 rounded-full hover:bg-caramel-hover transition-all duration-300 font-medium text-sm tracking-widest shadow-md hover:shadow-hover">
+                            送出預約諮詢單 <i class="fa-solid fa-paper-plane ml-2 text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Success Notification -->
+    <div id="toast" class="fixed bottom-8 right-8 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-chocolate text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4 border border-caramel/30">
+            <div class="w-8 h-8 rounded-full bg-caramel flex items-center justify-center text-white">
+                <i class="fa-solid fa-check text-sm"></i>
+            </div>
+            <div>
+                <h4 class="font-serif text-sm font-semibold text-cream-100">預約諮詢已成功送出！</h4>
+                <p class="text-xs text-cream-200/80">我們將盡快有專人與您聯繫確認細節。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-chocolate text-cream-100 py-16 border-t border-chocolate-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-chocolate-light/40">
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-cream-100/10 p-1 border border-cream-100/20 shrink-0">
+                            <svg viewBox="0 0 100 100" class="w-full h-full">
+                                <circle cx="50" cy="50" r="46" fill="#F4ECE1"/>
+                                <path d="M 28 42 C 22 58 25 82 32 86 C 38 86 42 72 42 58 L 58 58 C 58 72 62 86 68 86 C 75 82 78 58 72 42 Z" fill="#4A3B32"/>
+                                <ellipse cx="50" cy="48" rx="19" ry="17" fill="#FFF2E8"/>
+                                <path d="M 40 46 Q 44 42 48 46" stroke="#3D322A" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+                                <path d="M 52 46 Q 56 42 60 46" stroke="#3D322A" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+                                <ellipse cx="37" cy="51" rx="4" ry="2.2" fill="#F7A89A" opacity="0.65"/>
+                                <ellipse cx="63" cy="51" rx="4" ry="2.2" fill="#F7A89A" opacity="0.65"/>
+                                <path d="M 47 53 Q 50 56 53 53" stroke="#3D322A" stroke-width="2" stroke-linecap="round" fill="none"/>
+                                <path d="M 31 43 Q 41 49 50 43 Q 59 49 69 43 C 69 34 60 31 50 31 C 40 31 31 34 31 43 Z" fill="#4A3B32"/>
+                                <path d="M 25 35 C 25 21 38 16 50 16 C 62 16 75 21 75 35 C 65 38 35 38 25 35 Z" fill="#C87D55"/>
+                                <path d="M 49 16 L 49 12 Q 51 12 51 16 Z" fill="#8C4D2B"/>
+                                <path d="M 29 35 C 40 37 60 37 71 35 C 72 37 68 40 50 40 C 32 40 28 37 29 35 Z" fill="#B36A43"/>
+                                <path d="M 54 15 C 57 12 60 13 60 15 C 58 17 55 17 54 15 Z" fill="#A3B19B"/>
+                                <path d="M 34 66 C 32 58 38 54 50 54 C 62 54 68 58 66 66 C 64 72 36 72 34 66 Z" fill="#E2A053"/>
+                                <path d="M 41 58 Q 44 62 42 66 M 49 57 Q 52 61 50 65 M 57 58 Q 60 62 58 66" stroke="#A86829" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="35" cy="63" r="4.5" fill="#FFF2E8"/>
+                                <circle cx="65" cy="63" r="4.5" fill="#FFF2E8"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="font-serif text-2xl tracking-widest font-semibold block text-white">微光甜點室</span>
+                            <span class="text-xs tracking-widest text-caramel uppercase block font-medium">Maison de Lueur</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-cream-200/70 leading-relaxed max-w-sm pt-2">
+                        少一點負擔，多一點甘甜 —— 減糖純手工，許你每一口的安心與溫柔。
+                    </p>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-serif text-sm font-semibold text-white tracking-wider">網站導覽</h4>
+                    <ul class="space-y-2 text-xs text-cream-200/80">
+                        <li><a href="#hero" class="hover:text-caramel transition-colors">品牌首頁 Home</a></li>
+                        <li><a href="#story" class="hover:text-caramel transition-colors">品牌故事 Story</a></li>
+                        <li><a href="#philosophy" class="hover:text-caramel transition-colors">理念價值 Values</a></li>
+                        <li><a href="#products" class="hover:text-caramel transition-colors">商品展示 Products</a></li>
+                        <li><a href="#features" class="hover:text-caramel transition-colors">視覺體驗 Experience</a></li>
+                        <li><a href="#contact" class="hover:text-caramel transition-colors">聯絡資訊 Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="font-serif text-sm font-semibold text-white tracking-wider">關注我們</h4>
+                    <p class="text-xs text-cream-200/70">追蹤我們的社群平台，獲取最新減糖甜點與限定商品資訊</p>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="#" class="w-10 h-10 rounded-full bg-chocolate-light/40 flex items-center justify-center text-cream-100 hover:bg-caramel hover:text-white transition-colors" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-chocolate-light/40 flex items-center justify-center text-cream-100 hover:bg-caramel hover:text-white transition-colors" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-chocolate-light/40 flex items-center justify-center text-cream-100 hover:bg-caramel hover:text-white transition-colors" aria-label="Line">
+                            <i class="fa-brands fa-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-cream-200/50 gap-4">
+                <p>&copy; 2026 微光甜點室 Maison de Lueur. All rights reserved.</p>
+                <p>地址：台中市霧峰區光復新村微光路 88 號</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product Items Data
+        const productsData = [
+            {
+                id: 'p1',
+                name: '減糖 靜岡抹茶千層蛋糕',
+                category: 'cake',
+                categoryLabel: '手作蛋糕',
+                price: 180,
+                image: 'https://images.unsplash.com/photo-1582293041079-7814c2f12063?auto=format&fit=crop&w=800&q=80',
+                desc: '微調減少 40% 糖分，選用日本靜岡特濃抹茶與手工煎薄餅皮，層層茶香濃香回甘。',
+                ingredients: '靜岡抹茶粉、法國AOP奶油、日本海藻糖、有機雞蛋'
+            },
+            {
+                id: 'p2',
+                name: '清爽 輕草莓生乳卷',
+                category: 'cake',
+                categoryLabel: '手作蛋糕',
+                price: 195,
+                image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80',
+                desc: '北海道北海道中澤鮮奶油，搭配大湖新鮮草莓，口感如雲朵般輕盈無負擔。',
+                ingredients: '大湖草莓、北海道中澤鮮奶油、赤藻糖醇、日本紫羅蘭麵粉'
+            },
+            {
+                id: 'p3',
+                name: '燕麥堅果減糖手工餅乾 (罐裝)',
+                category: 'cookie',
+                categoryLabel: '減糖餅乾',
+                price: 220,
+                image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80',
+                desc: '高纖燕麥片搭配核桃與腰果，低溫烘焙香脆可口，是辦公室午後健康的安心解饞點心。',
+                ingredients: '全麥燕麥片、綜合堅果、赤藻糖醇、椰子油'
+            },
+            {
+                id: 'p4',
+                name: '伯爵紅茶佛羅倫丁餅乾',
+                category: 'cookie',
+                categoryLabel: '減糖餅乾',
+                price: 200,
+                image: 'https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=600&q=80',
+                desc: '唐寧伯爵茶葉磨粉融入餅底，覆蓋微甜焦糖杏仁片，茶香濃郁，甜而不膩。',
+                ingredients: '唐寧伯爵茶粉、杏仁片、日本海藻糖、發酵奶油'
+            },
+            {
+                id: 'p5',
+                name: '經典 焦香減糖可麗露 (2入)',
+                category: 'pastry',
+                categoryLabel: '法式糕點',
+                price: 160,
+                image: 'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=600&q=80',
+                desc: '薄脆焦糖外殼與卡士達般軟糯內餡，降低精製糖 35%，優雅展現經典法式神韻。',
+                ingredients: '法芙娜黑巧克力、馬達加斯加香草莢、釀造朗姆酒'
+            },
+            {
+                id: 'p6',
+                name: '香檸法式瑪德蓮 (3入)',
+                category: 'pastry',
+                categoryLabel: '法式糕點',
+                price: 180,
+                image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80',
+                desc: '加入屏東有機檸檬皮屑，果香酸甜清爽，濕潤不乾口，配茶最佳良伴。',
+                ingredients: '屏東有機綠檸檬、大溪地香草籽、發酵奶油'
+            }
+        ];
+
+        let selectedDesserts = [];
+        let currentActiveProduct = null;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProducts('all');
+            populateSelectOptions();
+            setupEvents();
+            setupHeroInteractions();
+        });
+
+        function setupHeroInteractions() {
+            const heroSection = document.getElementById('hero');
+            const heroGlow = document.getElementById('hero-glow');
+            if (!heroSection || !heroGlow) return;
+
+            heroSection.addEventListener('mousemove', (e) => {
+                const rect = heroSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                heroGlow.style.left = `${x}px`;
+                heroGlow.style.top = `${y}px`;
+                heroGlow.style.opacity = '1';
+            });
+
+            heroSection.addEventListener('mouseleave', () => {
+                heroGlow.style.opacity = '0';
+            });
+        }
+
+        function renderProducts(filter) {
+            const productGrid = document.getElementById('product-grid');
+            if (!productGrid) return;
+
+            productGrid.innerHTML = '';
+            const items = filter === 'all' ? productsData : productsData.filter(p => p.category === filter);
+
+            items.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'group bg-white rounded-3xl overflow-hidden border border-cream-200 hover:shadow-hover transition-all duration-300 cursor-pointer flex flex-col';
+                card.onclick = () => openModal(product);
+
+                card.innerHTML = `
+                    <div class="relative h-52 sm:h-60 overflow-hidden bg-cream-100">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80';"/>
+                        <span class="absolute top-4 left-4 bg-white/90 text-chocolate text-[11px] px-3 py-1 rounded-full font-medium">
+                            ${product.categoryLabel}
+                        </span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="font-serif text-lg font-semibold text-chocolate group-hover:text-caramel transition-colors">${product.name}</h3>
+                            <p class="text-xs text-chocolate/70 leading-relaxed line-clamp-2">${product.desc}</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-2 border-t border-cream-100">
+                            <span class="text-caramel font-semibold text-base">NT$ ${product.price}</span>
+                            <span class="text-xs text-chocolate/50 font-medium">查看詳情 <i class="fa-solid fa-angle-right text-[10px]"></i></span>
+                        </div>
+                    </div>
+                `;
+                productGrid.appendChild(card);
+            });
+        }
+
+        function populateSelectOptions() {
+            const sweetSelect = document.getElementById('sweet-select');
+            if (!sweetSelect) return;
+
+            productsData.forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = p.name;
+                opt.textContent = `${p.name} (NT$ ${p.price})`;
+                sweetSelect.appendChild(opt);
+            });
+        }
+
+        function openModal(product) {
+            currentActiveProduct = product;
+            const productModal = document.getElementById('product-modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalCategory = document.getElementById('modal-category');
+            const modalTitle = document.getElementById('modal-title');
+            const modalPrice = document.getElementById('modal-price');
+            const modalDesc = document.getElementById('modal-desc');
+            const modalIngredients = document.getElementById('modal-ingredients');
+
+            if (!productModal) return;
+
+            if (modalImg) modalImg.src = product.image;
+            if (modalCategory) modalCategory.textContent = product.categoryLabel;
+            if (modalTitle) modalTitle.textContent = product.name;
+            if (modalPrice) modalPrice.textContent = `NT$ ${product.price}`;
+            if (modalDesc) modalDesc.textContent = product.desc;
+            if (modalIngredients) modalIngredients.textContent = product.ingredients;
+
+            productModal.classList.remove('opacity-0', 'pointer-events-none');
+            const modalBox = productModal.querySelector('div');
+            if (modalBox) {
+                modalBox.classList.remove('scale-95');
+                modalBox.classList.add('scale-100');
+            }
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const productModal = document.getElementById('product-modal');
+            if (!productModal) return;
+
+            productModal.classList.add('opacity-0', 'pointer-events-none');
+            const modalBox = productModal.querySelector('div');
+            if (modalBox) {
+                modalBox.classList.remove('scale-100');
+                modalBox.classList.add('scale-95');
+            }
+            document.body.style.overflow = '';
+        }
+
+        function updateSelectedList() {
+            const selectedList = document.getElementById('selected-list');
+            if (!selectedList) return;
+
+            selectedList.innerHTML = '';
+            if (selectedDesserts.length === 0) {
+                selectedList.innerHTML = '<span class="text-chocolate/40 italic">點選上方下拉選單即可新增至清單</span>';
+                return;
+            }
+            selectedDesserts.forEach((item, idx) => {
+                const tag = document.createElement('span');
+                tag.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-caramel-light text-caramel text-xs font-medium border border-caramel/20';
+                tag.innerHTML = `
+                    ${item}
+                    <button type="button" onclick="removeItem(${idx})" class="hover:text-caramel-hover focus:outline-none">
+                        <i class="fa-solid fa-xmark text-xs"></i>
+                    </button>
+                `;
+                selectedList.appendChild(tag);
+            });
+        }
+
+        window.removeItem = function(idx) {
+            selectedDesserts.splice(idx, 1);
+            updateSelectedList();
+        };
+
+        function setupEvents() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            const productModal = document.getElementById('product-modal');
+            const modalCloseBtn = document.getElementById('modal-close');
+            const modalSelectBtn = document.getElementById('modal-select-btn');
+            const sweetSelect = document.getElementById('sweet-select');
+            const orderForm = document.getElementById('order-form');
+            const toast = document.getElementById('toast');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-white', 'shadow-sm');
+                        b.classList.add('text-chocolate/70');
+                    });
+                    btn.classList.add('active', 'bg-white', 'shadow-sm');
+                    btn.classList.remove('text-chocolate/70');
+                    renderProducts(btn.getAttribute('data-category'));
+                });
+            });
+
+            mobileMenuBtn?.addEventListener('click', () => {
+                mobileMenu?.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(l => l.addEventListener('click', () => mobileMenu?.classList.add('hidden')));
+
+            modalCloseBtn?.addEventListener('click', closeModal);
+            productModal?.addEventListener('click', (e) => {
+                if (e.target === productModal) closeModal();
+            });
+
+            modalSelectBtn?.addEventListener('click', () => {
+                if (currentActiveProduct && !selectedDesserts.includes(currentActiveProduct.name)) {
+                    selectedDesserts.push(currentActiveProduct.name);
+                    updateSelectedList();
+                }
+                closeModal();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            sweetSelect?.addEventListener('change', (e) => {
+                if (e.target.value && !selectedDesserts.includes(e.target.value)) {
+                    selectedDesserts.push(e.target.value);
+                    updateSelectedList();
+                }
+                e.target.value = '';
+            });
+
+            orderForm?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (toast) {
+                    toast.classList.remove('opacity-0', 'translate-y-20', 'pointer-events-none');
+                    toast.classList.add('opacity-100', 'translate-y-0');
+                }
+
+                orderForm.reset();
+                selectedDesserts = [];
+                updateSelectedList();
+
+                setTimeout(() => {
+                    if (toast) {
+                        toast.classList.add('opacity-0', 'translate-y-20', 'pointer-events-none');
+                        toast.classList.remove('opacity-100', 'translate-y-0');
+                    }
+                }, 4000);
+            });
+        }
+    </script>
+</body>
+</html>
